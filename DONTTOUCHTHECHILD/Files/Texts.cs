@@ -7,7 +7,7 @@ namespace DONTTOUCHTHECHILD
     {
         public List<string> Keys { get; set; }
         public List<string> Values { get; set; }
-        public Dictionary<string,string> TranslatedValues { get; set; }
+        public Dictionary<string, string> TranslatedValues { get; set; }
         public Texts()
         {
             Keys = new List<string>();

@@ -2,7 +2,7 @@
   "profiles": {
     "DONTTOUCHTHECHILD": {
       "commandName": "Project",
-      "commandLineArgs": "--JSON2PO E:\\Users\\raul2\\Downloads\\Pogs-sharedassets0.assets-2599-MonoBehaviour.json"
+      "commandLineArgs": "--JSON2PO \"E:\\Users\\raul2\\Downloads\\#1 Joey and Jude First Contact-sharedassets0.assets-2410-MonoBehaviour.json\""
     }
   }
 }

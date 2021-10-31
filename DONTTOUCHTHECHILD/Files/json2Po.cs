@@ -19,9 +19,16 @@ namespace DONTTOUCHTHECHILD
 
             for (int i = 0; i < source.Keys.Count; i++)
             {
+                string original = source.Values[i];
                 string translation = string.Empty;
 
-                po.Add(new PoEntry(source.Values[i])
+                if (source.Values[i] == null)
+                {
+                    original = "<EMPTY>";
+                    translation = "<EMPTY>";
+                }
+
+                po.Add(new PoEntry(original)
                 {
                     Translated = translation,
                     Context = source.Keys[i],
