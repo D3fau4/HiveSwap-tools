@@ -20,12 +20,15 @@ namespace DONTTOUCHTHECHILD
                         {
                             cmd.print(str);
                             Hison hivejson = new Hison(File.ReadAllText(str));
-                            json2Po po = new json2Po();
-                            var meme = po.Convert(hivejson.text);
-                            Po2Binary po2Binary = new Po2Binary();
-                            var binary = po2Binary.Convert(meme);
-                            var node1 = new Node(Path.GetFileName(args[1]), binary);
-                            node1.Stream.WriteTo(Path.Combine("Output", Path.GetFileName(str).Replace(".json",".po")));
+                            if (hivejson.text.Keys.Count > 0)
+                            {
+                                json2Po po = new json2Po();
+                                var meme = po.Convert(hivejson.text);
+                                Po2Binary po2Binary = new Po2Binary();
+                                var binary = po2Binary.Convert(meme);
+                                var node1 = new Node(Path.GetFileName(args[1]), binary);
+                                node1.Stream.WriteTo(Path.Combine("Output", Path.GetFileName(str).Replace(".json", ".po")));
+                            }
                         }
                     }
                     break;
