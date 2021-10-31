@@ -14,7 +14,7 @@ namespace DONTTOUCHTHECHILD
             text = new Texts();
             json = JObject.Parse(file);
 
-            if (json["0 MonoBehaviour Base"].Contains("0 Verb _verbs"))
+            if (json["0 MonoBehaviour Base"]["0 Verb _verbs"] != null)
             {
                 foreach (var item in json["0 MonoBehaviour Base"]["0 Verb _verbs"]["0 Array Array"])
                 {
@@ -36,14 +36,23 @@ namespace DONTTOUCHTHECHILD
                     }
                 }
             }
-            else if (json["0 MonoBehaviour Base"]["0 ConversationLine _lines"].Any())
+            else if (json["0 MonoBehaviour Base"]["0 ConversationLine _lines"] != null)
             {
+                int count = 0;
                 foreach (var item in json["0 MonoBehaviour Base"]["0 ConversationLine _lines"]["0 Array Array"])
                 {
+                    int countstate = 0;
+                    int countcue = 0;
                     foreach (var item2 in item["0 ConversationLine data"]["0 ConversationStatement _statementOptions"]["0 Array Array"])
                     {
-                        cmd.print((string)item2["0 ConversationStatement data"]["1 string _statement"]);
+                        string name = (string)json["0 MonoBehaviour Base"]["1 string _title"] + "_" + count + "_statement_" + countstate++;
+                        text.Keys.Add(name);
+                        text.Values.Add((string)item2["0 ConversationStatement data"]["1 string _statement"]);
+                        name = (string)json["0 MonoBehaviour Base"]["1 string _title"] + "_" + count + "_cue_" + countcue++;
+                        text.Keys.Add(name);
+                        text.Values.Add((string)item2["0 ConversationStatement data"]["1 string _cue"]);
                     }
+                    count++;
                 }
             }
             else

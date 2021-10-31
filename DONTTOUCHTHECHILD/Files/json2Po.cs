@@ -22,7 +22,7 @@ namespace DONTTOUCHTHECHILD
                 string original = source.Values[i];
                 string translation = string.Empty;
 
-                if (source.Values[i] == null)
+                if (source.Values[i] == null || source.Values[i] == string.Empty)
                 {
                     original = "<EMPTY>";
                     translation = "<EMPTY>";
