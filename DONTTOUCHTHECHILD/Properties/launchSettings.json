@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DONTTOUCHTHECHILD": {
+      "commandName": "Project",
+      "commandLineArgs": "--JSON2PO E:\\Users\\raul2\\Downloads\\Pogs-sharedassets0.assets-2599-MonoBehaviour.json"
+    }
+  }
+}

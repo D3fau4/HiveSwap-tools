@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace DONTTOUCHTHECHILD
 {
@@ -6,7 +7,14 @@ namespace DONTTOUCHTHECHILD
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            cmd.print("Welcome to DONTTOUCHTHECHILD v" + ProgramInfo.version, (ConsoleColor)cmd.LogType.Information);
+
+            switch(args[0])
+            {
+                case "--JSON2PO":
+                    Hison hivejson = new Hison(File.ReadAllText(args[1]));
+                    break;
+            }
         }
     }
 }

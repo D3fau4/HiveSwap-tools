@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Yarhl" Version="3.1.1-preview.45" />
+    <PackageReference Include="Yarhl.Media" Version="3.1.1-preview.45" />
   </ItemGroup>
 
 </Project>
