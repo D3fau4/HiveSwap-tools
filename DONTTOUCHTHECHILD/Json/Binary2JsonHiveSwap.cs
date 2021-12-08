@@ -32,8 +32,10 @@ namespace DONTTOUCHTHECHILD.Json
                 "string _name",
                 "string _paramName",
                 "string data",
-                "string _statement"
-
+                "string _statement",
+                "string DisplayText",
+                "string DisplayTextLine2",
+                "string DisplayTextLine3"
             };
                 
             foreach (var key in keys)
