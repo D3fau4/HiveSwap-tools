@@ -2,7 +2,7 @@
   "profiles": {
     "DONTTOUCHTHECHILD": {
       "commandName": "Project",
-      "commandLineArgs": "--JSON2PO E:\\Users\\raul2\\Downloads\\bromomento"
+      "commandLineArgs": "--JSON2PO bro"
     }
   }
 }
