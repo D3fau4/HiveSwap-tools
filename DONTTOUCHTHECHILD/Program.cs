@@ -13,6 +13,12 @@ namespace DONTTOUCHTHECHILD
         {
             cmd.print("Welcome to DONTTOUCHTHECHILD v" + ProgramInfo.version, (ConsoleColor)cmd.LogType.Information);
 
+            if (args.Length < 2)
+            {
+                PrintInfo();
+                Environment.Exit(0);
+            }
+
             switch (args[0].ToUpper())
             {
                 case "--JSON2PO":
@@ -55,11 +61,7 @@ namespace DONTTOUCHTHECHILD
                     }
                     break;
                 default:
-                    cmd.print("USAGE:");
-                    cmd.print("Export json to po");
-                    cmd.print("USAGE: DONTTOUCHTHECHILD --JSON2PO \"hiveswap_files\"");
-                    cmd.print("Export po to json");
-                    cmd.print("USAGE: DONTTOUCHTHECHILD --PO2JSON \"json_with_po_files\"");
+                   PrintInfo();
                     break;
             }
         }
@@ -93,6 +95,15 @@ namespace DONTTOUCHTHECHILD
             {
                 OriginalJson = oriChild.Stream
             }).Stream.WriteTo($"imported{Path.DirectorySeparatorChar}{oriChild.Name}");
+        }
+
+        private static void PrintInfo()
+        {
+            cmd.print("USAGE:");
+            cmd.print("Export json to po");
+            cmd.print("USAGE: DONTTOUCHTHECHILD --JSON2PO \"hiveswap_files\"");
+            cmd.print("Export po to json");
+            cmd.print("USAGE: DONTTOUCHTHECHILD --PO2JSON \"json_with_po_files\"");
         }
     }
 }
