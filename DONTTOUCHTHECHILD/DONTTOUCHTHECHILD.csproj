@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Yarhl" Version="3.1.0" />
-    <PackageReference Include="Yarhl.Media" Version="3.1.0" />
+    <PackageReference Include="Yarhl" Version="4.0.0-preview.153" />
+    <PackageReference Include="Yarhl.Media" Version="4.0.0-preview.153" />
   </ItemGroup>
 
 </Project>

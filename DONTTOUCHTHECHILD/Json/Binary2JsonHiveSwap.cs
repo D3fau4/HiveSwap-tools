@@ -7,12 +7,12 @@ namespace DONTTOUCHTHECHILD.Json
     public class Binary2JsonHiveSwap : IConverter<BinaryFormat, JsonHiveSwap>
     {
         private JsonHiveSwap _jsonHiveSwap;
-        private TextReader reader;
+        private TextDataReader reader;
 
         public JsonHiveSwap Convert(BinaryFormat source)
         {
             _jsonHiveSwap = new JsonHiveSwap();
-            reader = new TextReader(source.Stream);
+            reader = new TextDataReader(source.Stream);
             var pos = 0;
             do
             {
@@ -29,10 +29,13 @@ namespace DONTTOUCHTHECHILD.Json
             var keys = new string[]
             {
                 "string _displayName",
-                "string _name",
                 "string _paramName",
+
+                "string _name",
                 "string data",
                 "string _statement",
+
+
                 "string DisplayText",
                 "string DisplayTextLine2",
                 "string DisplayTextLine3",

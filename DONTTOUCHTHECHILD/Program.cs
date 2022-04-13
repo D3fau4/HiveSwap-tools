@@ -51,7 +51,7 @@ namespace DONTTOUCHTHECHILD
                                 cmd.print($"The original json file \"{jsonName}\" doesn't exist.", (ConsoleColor)cmd.LogType.Warning);
                                 continue;
                             }
-                            GenerateJson(child, containerJson.Find(x=>x.Name == jsonName));
+                            GenerateJson(child, containerJson.Find(x=>x.Name == jsonName), jsonName);
                         }
                     }
                     else
@@ -85,15 +85,18 @@ namespace DONTTOUCHTHECHILD
             }
         }
 
-        private static void GenerateJson(Node child, Node oriChild)
+        private static void GenerateJson(Node child, Node oriChild, string filename)
         {
             cmd.print($"Importing {child.Name}...");
             if (!Directory.Exists("imported"))
                 Directory.CreateDirectory("imported");
 
+            bool blacklist = JsonHiveSwap2Binary.fileBlackList.Exists(x => x.Contains(filename));
+
             child.TransformWith(new Binary2Po()).TransformWith(new Po2JsonHiveSwap()).TransformWith(new JsonHiveSwap2Binary()
             {
-                OriginalJson = oriChild.Stream
+                OriginalJson = oriChild.Stream,
+                BlackList = blacklist
             }).Stream.WriteTo($"imported{Path.DirectorySeparatorChar}{oriChild.Name}");
         }
 
@@ -105,5 +108,6 @@ namespace DONTTOUCHTHECHILD
             cmd.print("Export po to json");
             cmd.print("USAGE: DONTTOUCHTHECHILD --PO2JSON \"json_with_po_files\"");
         }
+
     }
 }

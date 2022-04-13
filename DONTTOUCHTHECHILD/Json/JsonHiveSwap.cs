@@ -10,6 +10,7 @@ namespace DONTTOUCHTHECHILD.Json
     public class JsonHiveSwap : IFormat
     {
         public List<JsonEntry> entries { get; set; }
+        public bool BlackList { get; set; }
 
         public JsonHiveSwap()
         {
